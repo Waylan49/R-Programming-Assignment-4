@@ -1,9 +1,9 @@
 best<-function(STATE, disease){
         
-        outcomeFirst<-read.csv("outcome-of-care-measures.csv", colClasses="character")
-        outcomeSecond<-split(outcomeFirst, outcomeFirst$State)
+        outcomeFirst<-read.csv("outcome-of-care-measures.csv", colClasses="character") 
+        outcomeSecond<-split(outcomeFirst, outcomeFirst$State) #Split the list by State
         outcomeThird<-outcomeSecond[STATE]
-        outcomeForth<-as.data.frame(outcomeThird)
+        outcomeForth<-as.data.frame(outcomeThird) #chagne the class "list" to "data frame"
         
         x<-c("heart attack", "heart failure", "pneumonia")
         y<-NULL
@@ -28,7 +28,7 @@ best<-function(STATE, disease){
         
         outcomeForth[,y]<-as.numeric(outcomeForth[,y])
         
-        t<-table(outcomeForth[,y])
+        t<-table(outcomeForth[,y]) #By using table function to identify the minimum quantity
         if(t[1]==1){
                 z<-which.min(outcomeForth[,y])
                 w<-outcomeForth[,2][z]
