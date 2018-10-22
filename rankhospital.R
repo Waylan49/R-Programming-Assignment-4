@@ -26,7 +26,7 @@ rankhospital<-function(STATE, disease, num= "best"){
                 y<-23
         }
         
-        outcomeForth[,y]<-as.numeric(outcomeForth[,y])
+        outcomeForth[,y]<-as.numeric(outcomeForth[,y]) #By using order function to sort the data
         v<-names(outcomeForth)[2]
         outcomeForth<-outcomeForth[order(outcomeForth[v]),]
         w<-names(outcomeForth)[y]
